@@ -1,0 +1,13 @@
+#!/bin/sh
+# update the keystone repo
+if [[ `git -C /opt/keystone pull` != 0]]
+then
+    exit 1
+fi
+# update the database, fingers crossed...
+if [[ `keystone-manage --config-file /etc/keystone/keystone.conf db_sync` != 0]]
+then
+    exit 1
+fi
+# start the keystone server
+keystone-all --config-file /etc/keystone/keystone.conf
