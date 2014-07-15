@@ -1,12 +1,16 @@
 #!/bin/sh
 # update the keystone repo
-if [[ `git -C /opt/keystone pull` != 0]]
+git -C /opt/keystone pull
+if [ $? -ne 0 ]
 then
+    echo "Error updating keystone git repo"
     exit 1
 fi
 # update the database, fingers crossed...
-if [[ `keystone-manage --config-file /etc/keystone/keystone.conf db_sync` != 0]]
+keystone-manage --config-file /etc/keystone/keystone.conf db_sync
+if [ $? -ne 0 ]
 then
+    echo "Error running keystone-manage"
     exit 1
 fi
 # start the keystone server
