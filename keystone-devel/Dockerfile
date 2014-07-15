@@ -1,4 +1,5 @@
 FROM fedora:20
+MAINTAINER michael mccune <mimccune@redhat.com>
 
 RUN ["/usr/bin/yum", "install", "-y", \
      "git", \
