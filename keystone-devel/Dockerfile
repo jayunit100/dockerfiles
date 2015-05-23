@@ -1,5 +1,5 @@
-FROM fedora:20
-MAINTAINER michael mccune <mimccune@redhat.com>
+FROM fedora:21
+MAINTAINER michael mccune <msm@redhat.com>
 
 RUN ["/usr/bin/yum", "install", "-y", \
      "git", \
@@ -13,7 +13,7 @@ RUN ["/usr/bin/yum", "install", "-y", \
      "gcc", \
      "python-devel" \
     ]
-        
+
 WORKDIR /opt
 RUN ["/usr/bin/git", "clone", "https://github.com/openstack/keystone"]
 
