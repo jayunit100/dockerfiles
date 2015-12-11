@@ -28,7 +28,7 @@ RUN ["cp", "etc/policy.json", "/etc/keystone/"]
 EXPOSE 5000
 EXPOSE 35357
 
-ADD update_and_start_keystone /opt/
+ADD update_and_start_keystone /
 
 WORKDIR /
-ENTRYPOINT ["/opt/update_and_start_keystone"]
+ENTRYPOINT ["/update_and_start_keystone"]
